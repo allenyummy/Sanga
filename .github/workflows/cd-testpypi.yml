@@ -71,4 +71,4 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.TESTPYPI_PASSWORD }}
         run: |
           python3 -m build
-          twine upload -r testpypi dist/*
+          python3 -m twine upload -r testpypi dist/*
