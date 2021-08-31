@@ -2,3 +2,4 @@ __pycache__
 .coverage
 .pytest_cache
 dist/
+Sanga.egg-info/
