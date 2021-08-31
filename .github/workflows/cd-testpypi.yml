@@ -51,6 +51,7 @@ jobs:
         run: PYTHONPATH=./::./src pytest tests/ --log-cli-level=warning --cov=./ --cov-report=term-missing
 
   upload_package_to_testpypi:
+    needs: run_tests
     runs-on: ubuntu-latest
 
     steps:
