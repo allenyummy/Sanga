@@ -61,6 +61,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.x"
+      
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
 
       - name: Install basic dependencies
         run: pip install --upgrade build twine
