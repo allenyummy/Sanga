@@ -1,0 +1,47 @@
+name: Deploy to pypi for master branch
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  upload_Sanga_package_to_pypi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install basic dependencies
+        run: pip install --upgrade build twine
+
+      - name: build and upload to pypi
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python3 -m build
+          python3 -m twine upload dist/*
+
+  run_tests_for_Sanga_package_from_pypi:
+    needs: upload_Sanga_package_to_pypi
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install Sanga
+        run: pip install --upgrade Sanga
+
+      - name: Test tests/media/* with pytest
+        run: |
+          pytest tests/ --log-cli-level=warning --cov=./ --cov-report=term-missing
