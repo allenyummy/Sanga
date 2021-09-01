@@ -24,7 +24,7 @@ pip install Sanga
 ```
 import Sanga as sg
 
-news_crawler = sg.factory.MediaNewsCrawlerFactory(media_name="yahoo")
+news_crawler = sg.create_crawler(media_name="yahoo")
 
 news = news_crawler.getInfo(link="https://tw.news.yahoo.com/%E9%98%B2%E7%96%AB%E9%81%8B%E5%B0%87%E5%82%B3%E9%9B%99%E5%8C%97%E5%85%A9%E9%82%8A%E8%B7%91%E8%BB%8A-%E8%BB%8A%E9%9A%8A%E5%90%A6%E8%AA%8D-224915749.html")
 ```
@@ -44,7 +44,6 @@ print (news)
 
 - Get news info (Check details in `Sanga::struct::NewsStruct`)
 ```
-
 title = news.title
 content = news.content
 keywords = news.keywords
@@ -57,6 +56,23 @@ link = news.link
 - Transform news struct into dictionary
 ```
 news_dict = news.__2dict__()
+```
+
+- Write your own media crawler
+```
+import Sanga as sg
+from Sanga.struct import NewsStruct
+
+class CustomMediaNewsCrawler(sg.BaseMediaNewsCrawler):
+
+    def getInfo(self, link: str) -> NewsStruct:
+
+        ## Write your implementation
+
+        raise NotImplementedError
+
+news_crawler = CustomMediaNewsCrawler()
+news = news_crawler.getInfo(link="xxxx")
 ```
 
 ### Supported Media
