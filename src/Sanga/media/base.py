@@ -19,8 +19,6 @@ logger = logging.getLogger(__name__)
 class BaseMediaNewsCrawler(ABC):
     """Web Crawler for Media News"""
 
-    MEDIA_CANDIDATES: List[str] = None
-
     def getInfo(self, link: str) -> NewsStruct:
 
         # Check if NewsCrawler DOES support crawling the given link.
