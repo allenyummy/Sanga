@@ -2,8 +2,8 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/allenyummy/Sanga/blob/master/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.6%7C3.7%7C3.8%7C3.9-blue)](https://pypi.org/project/Sanga/)
 [![PyPi](https://img.shields.io/pypi/v/Sanga)](https://pypi.org/project/Sanga/)
-[![Release](https://img.shields.io/badge/release-0.0.1.dev4-blueviolet)](https://github.com/allenyummy/Sanga/releases/tag/0.0.1.dev4)
-[![Codecov](https://img.shields.io/badge/codecov-98%25-red)]()
+[![Release](https://img.shields.io/github/v/release/allenyummy/Sanga?include_prereleases)](https://github.com/allenyummy/Sanga/releases/)
+[![Codecov](https://img.shields.io/badge/codecov-98%25-blueviolet)]()
 
 # Sanga
 
